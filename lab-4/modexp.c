@@ -19,7 +19,10 @@ int main(int argc, char ** argv)
 	BIGNUM * d = BN_new();
 	BIGNUM * enc = BN_new();
 	BIGNUM * dec = BN_new();
-
+        if (argc != 4) {
+                fprintf(stderr, "invalid number of parameters.\n");
+                return 1;
+        }
 	BN_hex2bn(&M, argv[1]);
 	BN_hex2bn(&N, argv[2]);
 	BN_hex2bn(&e, argv[3]);
